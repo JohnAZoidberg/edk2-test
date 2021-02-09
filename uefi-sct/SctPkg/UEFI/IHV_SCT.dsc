@@ -69,15 +69,16 @@
   MSFT:*_*_X64_APP_FLAGS   = /D EFIX64
   MSFT:*_*_X64_PP_FLAGS    = /D EFIX64
 
-#  GCC:*_*_IA32_CC_FLAGS     = -D EFI32 $(GCC_VER_MACRO) -ffreestanding -nostdinc -nostdlib -Wno-error -mno-red-zone -Wno-address -mno-stack-arg-probe "-DEFIAPI=__attribute__((ms_abi))" -m32 -mabi=ms -D MDE_CPU_X32
-   GCC:*_*_IA32_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO) -Wno-error 
+   GCC:*_*_*_CC_FLAGS        = -ffreestanding -nostdinc -nostdlib -Wno-error
+#  GCC:*_*_IA32_CC_FLAGS     = -D EFI32 $(GCC_VER_MACRO) -mno-red-zone -Wno-address -mno-stack-arg-probe "-DEFIAPI=__attribute__((ms_abi))" -m32 -mabi=ms -D MDE_CPU_X32
+   GCC:*_*_IA32_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO)
 #  GCC:*_*_IA32_VFRPP_FLAGS  = -D EFI32 $(GCC_VER_MACRO)
 #  GCC:*_*_IA32_APP_FLAGS    = -D EFI32 $(GCC_VER_MACRO)
 #  GCC:*_*_IA32_PP_FLAGS     = -D EFI32 $(GCC_VER_MACRO)
 
-#  GCC:*_*_X64_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO) -ffreestanding -nostdinc -nostdlib -Wno-error -mno-red-zone -Wno-address -mno-stack-arg-probe "-DEFIAPI=__attribute__((ms_abi))" -m64 -mcmodel=large -mabi=ms -D MDE_CPU_X64
+#  GCC:*_*_X64_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO) -mno-red-zone -Wno-address -mno-stack-arg-probe "-DEFIAPI=__attribute__((ms_abi))" -m64 -mcmodel=large -mabi=ms -D MDE_CPU_X64
 
-   GCC:*_*_X64_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO) -Wno-error 
+   GCC:*_*_X64_CC_FLAGS     = -D EFIX64 $(GCC_VER_MACRO)
 #  GCC:*_*_X64_VFRPP_FLAGS  = -D EFIX64 $(GCC_VER_MACRO)
 #  GCC:*_*_X64_APP_FLAGS    = -D EFIX64 $(GCC_VER_MACRO)
 #  GCC:*_*_X64_PP_FLAGS     = -D EFIX64 $(GCC_VER_MACRO)
@@ -85,7 +86,7 @@
 
   #TODO: OM - fixme RVCT:*_*_ARM_CC_FLAGS = -D EFIARM $(GCC_VER_MACRO)
   *_*_ARM_CC_FLAGS = -D EFIARM
-  GCC:*_*_ARM_CC_FLAGS  = -D EFIARM $(GCC_VER_MACRO) -fno-stack-protector -ffreestanding -nostdinc -nostdlib -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=implicit-function-declaration -Wno-error
+  GCC:*_*_ARM_CC_FLAGS  = -D EFIARM $(GCC_VER_MACRO) -fno-stack-protector
   *_*_ARM_VFRPP_FLAGS   = -D EFIARM $(GCC_VER_MACRO)
   *_*_ARM_APP_FLAGS     = -D EFIARM $(GCC_VER_MACRO)
   *_*_ARM_PP_FLAGS      = -D EFIARM $(GCC_VER_MACRO)
@@ -104,14 +105,14 @@
   RVCT:*_*_ARM_CC_FLAGS    = --diag_remark=167 --diag_suppress=167,1295,188,550,1,68,111,177
 
   *_*_AARCH64_CC_FLAGS         = -D EFIAARCH64 $(GCC_VER_MACRO)
-  GCC:*_*_AARCH64_CC_FLAGS     = -D EFIAARCH64 $(GCC_VER_MACRO) -ffreestanding -nostdinc -nostdlib -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error
+  GCC:*_*_AARCH64_CC_FLAGS     = -D EFIAARCH64 $(GCC_VER_MACRO)
   *_*_AARCH64_VFRPP_FLAGS      = -D EFIAARCH64 $(GCC_VER_MACRO)
   *_*_AARCH64_APP_FLAGS        = -D EFIAARCH64 $(GCC_VER_MACRO)
   *_*_AARCH64_PP_FLAGS         = -D EFIAARCH64 $(GCC_VER_MACRO)
   RVCT:*_*_AARCH64_DLINK_FLAGS = --muldefweak
 
   *_*_RISCV64_CC_FLAGS         = -D EFIRISCV64 $(GCC_VER_MACRO)
-  GCC:*_*_RISCV64_CC_FLAGS  = -D EFIRISCV64 $(GCC_VER_MACRO) -ffreestanding -nostdinc -nostdlib -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error
+  GCC:*_*_RISCV64_CC_FLAGS     = -D EFIRISCV64 $(GCC_VER_MACRO)
   *_*_RISCV64_VFRPP_FLAGS      = -D EFIRISCV64 $(GCC_VER_MACRO)
   *_*_RISCV64_APP_FLAGS        = -D EFIRISCV64 $(GCC_VER_MACRO)
   *_*_RISCV64_PP_FLAGS         = -D EFIRISCV64 $(GCC_VER_MACRO)
